@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd 
+  http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+<changeSet id="1" author="jahnavi">
+<createTable tableName="employees">
+<column name="id" type="int">
+<constraints primaryKey="true"/>
+</column>
+<column name="firstName" type="varchar(50)"></column>
+<column name="lastName" type="varchar(20)"></column>
+      </createTable>
+      </changeSet>
+      <changeSet id="2" author="jahnavi">
+       <insert tableName="employees">
+       <column name="id" value="2"></column>
+      <column name="firstName" value="Jagadee"/>
+      <column name="lastName" value="Thokala"></column>
+    </insert>
+     </changeSet>
+     <changeSet id="3" author="jahnavi">
+     <insert tableName="employees">
+       <column name="id" value="3"></column>
+      <column name="firstName" value="vinni"/>
+      <column name="lastName" value="bhavya"></column>
+    </insert>
+</changeSet>
+<changeSet id="addColumn" author="janu">
+<addColumn tableName="employees">
+<column name="phone" type="bigint"></column>
+</addColumn>
+</changeSet>
+ <changeSet id="update" author="janu">
+<insert tableName="employees">
+<column name="id" value="4"></column>
+      <column name="firstName" value="hemansh"/>
+      <column name="lastName" value="kannaya"></column>
+      <column name="phone" value="8521364566"></column>
+</insert>
+</changeSet>
+<changeSet id="loadupdate" author="jj">
+<update tableName="employees">
+ <column name="firstName" value="nagulla"/>
+        <column name="lastName" value="bhavya"/>
+        <column name="phone" value="8569321471"/>
+        <where>id=3</where>
+</update>
+</changeSet>
+<changeSet id="file" author="janu">
+<loadData tableName="employees"
+          file="employee.csv"
+          separator=";">
+          <column name="id" type="int"></column>
+<column name="firstName" type="varchar(50)"></column> 
+<column name="lastName" type="varchar(20)"></column>
+<column name="phone" type="bigint"></column>
+</loadData>
+</changeSet>
+<changeSet id="employee" author="Jahnavi">
+<loadUpdateData tableName="employees" 
+                primaryKey="id"
+                file="empoyeeupdate.csv"
+                separator=";">
+</loadUpdateData>
+</changeSet>
+<changeSet id="drop" author="janu">
+<dropColumn tableName="employees" columnName="firstName"/>
+</changeSet>
+</databaseChangeLog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
